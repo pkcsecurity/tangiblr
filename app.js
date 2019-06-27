@@ -29,5 +29,5 @@ router.get('/book', async (ctx, next) => {
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(PORT, function() {
-  console.log('==> 🌎  Listening on port %s. Visit http://localhost:%s/', PORT, PORT);
+  console.log('==> 🌎 Listening on port %s. Visit http://localhost:%s/', PORT, PORT);
 });
