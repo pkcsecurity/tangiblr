@@ -20,12 +20,7 @@ app.use(cors());
 const router = new Router();
 
 router.get('/book', async (ctx, next) => {
-  const books = [
-    'Speaking javascript',
-    'Fluent Python',
-    'Pro Python',
-    'The Go programming language',
-  ];
+  const books = ['Speaking javascript', 'Fluent Python', 'Pro Python', 'The Go programming language'];
   ctx.status = HttpStatus.OK;
   ctx.body = books;
   await next();
@@ -34,9 +29,5 @@ router.get('/book', async (ctx, next) => {
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(PORT, function() {
-  console.log(
-    '==> 🌎  Listening on port %s. Visit http://localhost:%s/',
-    PORT,
-    PORT,
-  );
+  console.log('==> 🌎 Listening on port %s. Visit http://localhost:%s/', PORT, PORT);
 });
