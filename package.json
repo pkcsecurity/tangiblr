@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -20,5 +20,8 @@
     "koa-static": "^5.0.0",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
