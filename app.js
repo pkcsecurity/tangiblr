@@ -8,6 +8,9 @@ const cors = require('koa-cors');
 const HttpStatus = require('http-status');
 const Shopify = require('shopify-api-node');
 
+// Koa middleware
+const shopifyRoutes = require('./middleware/shopify');
+
 const app = new Koa();
 app.use(serve('frontend/build'));
 app.use(BodyParser());
@@ -33,15 +36,11 @@ router.get('/book', async (ctx, next) => {
   await next();
 });
 
-router.get('/users', async (ctx, next) => {
-  const users = await shopify.user.list();
-  console.log(users);
-  await next();
-})
+router.get('/customers', shopifyRoutes.getCustomers);
+
 
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(PORT, function() {
   console.log('==> 🌎 Listening on port %s. Visit http://localhost:%s/', PORT, PORT);
-  
 });
